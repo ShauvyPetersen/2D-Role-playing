@@ -51,3 +51,32 @@ public class LevelController : MonoBehaviour
         }
  
     }
+ 
+ 
+    public void Victory()
+    {
+        finished = true;
+        level += 1;
+        victoryPanel.SetActive(true);
+        GameController.SaveLevel();
+    }
+ 
+    public void Defeat()
+    {
+        finished = true;
+        defeatPanel.SetActive(true);
+    }
+ 
+ 
+    public void RestartLevel()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(index);
+    }
+ 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+ 
+}
